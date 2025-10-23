@@ -1,3 +1,11 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow private routes
+Disallow: /captain/dashboard
+Disallow: /captain/login
+Disallow: /captain/signup
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml

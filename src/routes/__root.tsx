@@ -29,7 +29,82 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Carpe Diem - Seize the Day through Poetry',
+      },
+      {
+        name: 'description',
+        content: 'A beautiful, modern poetry platform where you can share your verses, express your soul, and join a community of wordsmiths. Built with TanStack Start and Neon Database.',
+      },
+      {
+        name: 'keywords',
+        content: 'poetry, poems, creative writing, verse, literature, carpe diem, poetry platform, writing community',
+      },
+      {
+        name: 'author',
+        content: 'Carpe Diem Poetry',
+      },
+      // Open Graph / Facebook
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        property: 'og:title',
+        content: 'Carpe Diem - Seize the Day through Poetry',
+      },
+      {
+        property: 'og:description',
+        content: 'A beautiful, modern poetry platform where you can share your verses, express your soul, and join a community of wordsmiths.',
+      },
+      {
+        property: 'og:image',
+        content: '/og-image.svg',
+      },
+      {
+        property: 'og:image:width',
+        content: '1200',
+      },
+      {
+        property: 'og:image:height',
+        content: '630',
+      },
+      {
+        property: 'og:image:alt',
+        content: 'Carpe Diem - Seize the Day through Poetry',
+      },
+      {
+        property: 'og:site_name',
+        content: 'Alvin',
+      },
+      // Twitter Card
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        name: 'twitter:title',
+        content: 'Carpe Diem - Seize the Day through Poetry',
+      },
+      {
+        name: 'twitter:description',
+        content: 'A beautiful, modern poetry platform where you can share your verses, express your soul, and join a community of wordsmiths.',
+      },
+      {
+        name: 'twitter:image',
+        content: '/og-image.svg',
+      },
+      {
+        name: 'twitter:image:alt',
+        content: 'Carpe Diem - Seize the Day through Poetry',
+      },
+      // Additional SEO
+      {
+        name: 'theme-color',
+        content: '#0A0A0B',
+      },
+      {
+        name: 'robots',
+        content: 'index, follow',
       },
     ],
     links: [
@@ -49,6 +124,25 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         rel: 'stylesheet',
         href: appCss,
+      },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '192x192',
+        href: '/logo192.png',
+      },
+      {
+        rel: 'manifest',
+        href: '/manifest.json',
+      },
+      {
+        rel: 'sitemap',
+        type: 'application/xml',
+        href: '/sitemap.xml',
       },
     ],
   }),

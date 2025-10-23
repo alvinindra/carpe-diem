@@ -1,0 +1,46 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0A0A0B" />
+
+  <!-- Gradient Overlay -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(139,92,246,0.1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(59,130,246,0.05);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grad)" />
+
+  <!-- Content Container -->
+  <g transform="translate(100, 220)">
+    <!-- Title: Carpe Diem (8xl = 96px) -->
+    <text
+      x="0"
+      y="0"
+      font-family="'Instrument Serif', serif"
+      font-size="96"
+      font-weight="700"
+      fill="#FAFAFA"
+      letter-spacing="-2"
+    >
+      Carpe Diem
+    </text>
+
+    <!-- Description (5xl = 48px, regular) -->
+    <text
+      x="0"
+      y="100"
+      font-family="'Instrument Sans', sans-serif"
+      font-size="48"
+      font-weight="400"
+      fill="#A3A3A3"
+      letter-spacing="-1"
+    >
+      Seize the Day through Poetry
+    </text>
+  </g>
+
+  <!-- Bottom right decoration -->
+  <circle cx="1050" cy="530" r="80" fill="rgba(139,92,246,0.1)" />
+  <circle cx="1100" cy="580" r="60" fill="rgba(59,130,246,0.08)" />
+</svg>

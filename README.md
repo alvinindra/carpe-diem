@@ -14,18 +14,18 @@ A beautiful, modern poetry platform built with TanStack Start, Neon Database, an
 ## ✨ Features
 
 - 🔐 **Secure Authentication** - JWT-based auth with bcrypt password hashing
-- ✍️ **Rich Text Editor** - Markdown-style formatting for beautiful poetry
+- ✍️ **Rich Text Editor** - Plate editor with rich formatting for beautiful poetry
 - 📊 **Personal Dashboard** - Manage all your poems in one place
-- 🎨 **Modern UI** - Beautiful dark theme with Tailwind CSS & shadcn/ui
+- 🎨 **Modern UI** - Beautiful design with Tailwind CSS & shadcn/ui components
 - 🚀 **Full-Stack TypeScript** - Type-safe from database to UI
 - ⚡ **Serverless Database** - Powered by Neon PostgreSQL
 - 📱 **Responsive Design** - Works perfectly on all devices
+- 🎭 **Custom 404 Page** - Elegant not-found page with Instrument Serif typography
+- 🌙 **Dark Mode Ready** - Designed with dark theme support
 
 ---
 
 ## 🚀 Quick Start
-
-**Get started in 5 minutes!** See [QUICK_START.md](QUICK_START.md) for detailed steps.
 
 ```bash
 # 1. Install dependencies
@@ -48,9 +48,7 @@ pnpm dev
 
 ## 📚 Documentation
 
-- **[Quick Start Guide](QUICK_START.md)** - Get running in 5 minutes
 - **[Setup Guide](SETUP.md)** - Detailed setup instructions
-- **[Implementation Summary](IMPLEMENTATION_SUMMARY.md)** - Complete feature overview
 - **[Database Schema](src/db-schema.sql)** - SQL table definitions
 
 ---
@@ -60,9 +58,11 @@ pnpm dev
 ### Frontend
 - **React 19** - Latest React with modern features
 - **TanStack Start** - Full-stack React framework
-- **TanStack Router** - Type-safe routing
-- **Tailwind CSS** - Utility-first CSS framework
+- **TanStack Router** - Type-safe routing with 404 handling
+- **Tailwind CSS v4** - Latest utility-first CSS framework
 - **shadcn/ui** - Beautiful, accessible components
+- **Plate Editor** - Rich text editing experience
+- **Instrument Serif & Sans** - Google Fonts typography
 
 ### Backend
 - **Neon PostgreSQL** - Serverless Postgres database
@@ -85,26 +85,36 @@ src/
 ├── components/
 │   ├── login-form.tsx          # Login with authentication
 │   ├── signup-form.tsx         # User registration
-│   ├── plate-editor.tsx        # Rich text editor
+│   ├── plate-editor.tsx        # Plate rich text editor
 │   └── ui/                     # shadcn/ui components
+│       ├── button.tsx          # Button component
+│       ├── card.tsx            # Card component
+│       ├── field.tsx           # Form field wrapper
+│       ├── input.tsx           # Input component
+│       ├── label.tsx           # Label component
+│       └── separator.tsx       # Separator component
 ├── lib/
 │   ├── auth.ts                 # JWT & bcrypt utilities
 │   ├── session.ts              # Auth server functions
-│   └── poets-api.ts            # Poets CRUD API
+│   ├── poets-api.ts            # Poets CRUD API
+│   └── utils.ts                # Utility functions
 ├── hooks/
 │   └── useAuth.ts              # Authentication hook
 ├── routes/
+│   ├── __root.tsx              # Root layout with 404 handler
 │   ├── index.tsx               # Landing page
-│   ├── dashboard.tsx           # Main dashboard
 │   ├── captain/
-│   │   ├── login.tsx          # Login page
-│   │   └── signup.tsx         # Signup page
+│   │   ├── dashboard.tsx       # Main dashboard
+│   │   ├── login.tsx           # Login page
+│   │   └── signup.tsx          # Signup page
 │   └── poets/
-│       ├── new.tsx            # Create poem
+│       ├── new.tsx             # Create poem
 │       └── $poetId/
-│           └── edit.tsx       # Edit poem
+│           └── edit.tsx        # Edit poem
+├── styles/
+│   └── app.css                 # Global styles & Tailwind config
 ├── db.ts                       # Database client
-└── db-schema.sql              # Database schema
+└── db-schema.sql               # Database schema
 ```
 
 ---
@@ -117,6 +127,7 @@ src/
 4. **Dashboard** (`/captain/dashboard`) → View all poems
 5. **Create** (`/poets/new`) → Write new poetry
 6. **Edit** (`/poets/:id/edit`) → Modify poems
+7. **404 Page** (any invalid route) → Elegant not-found with home redirect
 
 ---
 
@@ -188,13 +199,13 @@ See [src/db-schema.sql](src/db-schema.sql) for the complete schema.
 
 ## 🎨 Rich Text Editor Features
 
-The custom Markdown-style editor supports:
-- **Headings** (H1, H2)
-- **Bold**, *Italic*, __Underline__
-- `Inline code`
-- > Block quotes
-- Bulleted lists
-- Numbered lists
+The Plate editor provides:
+- **Rich Text Formatting** - Full WYSIWYG editing experience
+- **Headings** - Multiple heading levels
+- **Text Styles** - Bold, italic, underline, and more
+- **Block Elements** - Paragraphs, quotes, code blocks
+- **Lists** - Bulleted and numbered lists
+- **JSON Storage** - Content stored as structured JSON in database
 
 ---
 
@@ -253,8 +264,30 @@ MIT License - Feel free to use this project for personal or commercial purposes.
 
 For issues or questions:
 - Check the [documentation](SETUP.md)
-- Review [implementation details](IMPLEMENTATION_SUMMARY.md)
 - Open an issue on GitHub
+
+---
+
+## 🎯 Current Status
+
+**✅ Completed Features:**
+- ✅ User authentication (signup/login with JWT)
+- ✅ Dashboard with poem management
+- ✅ Rich text editor with Plate
+- ✅ Create and edit poems
+- ✅ Responsive UI with Tailwind CSS v4
+- ✅ shadcn/ui component integration
+- ✅ Custom 404 page with elegant typography
+- ✅ Neon PostgreSQL integration
+- ✅ Type-safe API with server functions
+
+**🚧 Future Enhancements:**
+- 🔄 Poem sharing functionality
+- 🔄 User profiles and bios
+- 🔄 Search and filter poems
+- 🔄 Categories and tags
+- 🔄 Social features (likes, comments)
+- 🔄 Export poems (PDF, markdown)
 
 ---
 
