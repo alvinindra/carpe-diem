@@ -1,0 +1,263 @@
+# Dead Poets Society 🖋️
+
+**Carpe Diem - Seize the Day through Poetry**
+
+A beautiful, modern poetry platform built with TanStack Start, Neon Database, and a rich text editor. Share your verses, express your soul, and join a community of wordsmiths.
+
+![TanStack Start](https://img.shields.io/badge/TanStack-Start-cyan)
+![Neon Database](https://img.shields.io/badge/Neon-Database-green)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)
+![React](https://img.shields.io/badge/React-19-purple)
+
+---
+
+## ✨ Features
+
+- 🔐 **Secure Authentication** - JWT-based auth with bcrypt password hashing
+- ✍️ **Rich Text Editor** - Markdown-style formatting for beautiful poetry
+- 📊 **Personal Dashboard** - Manage all your poems in one place
+- 🎨 **Modern UI** - Beautiful dark theme with Tailwind CSS & shadcn/ui
+- 🚀 **Full-Stack TypeScript** - Type-safe from database to UI
+- ⚡ **Serverless Database** - Powered by Neon PostgreSQL
+- 📱 **Responsive Design** - Works perfectly on all devices
+
+---
+
+## 🚀 Quick Start
+
+**Get started in 5 minutes!** See [QUICK_START.md](QUICK_START.md) for detailed steps.
+
+```bash
+# 1. Install dependencies
+pnpm install
+
+# 2. Set up environment variables
+cp .env.example .env
+# Edit .env with your Neon Database URL and JWT secret
+
+# 3. Run the SQL schema in your Neon Database
+# Copy contents of src/db-schema.sql to Neon SQL Editor
+
+# 4. Start development server
+pnpm dev
+
+# 5. Visit http://localhost:3000
+```
+
+---
+
+## 📚 Documentation
+
+- **[Quick Start Guide](QUICK_START.md)** - Get running in 5 minutes
+- **[Setup Guide](SETUP.md)** - Detailed setup instructions
+- **[Implementation Summary](IMPLEMENTATION_SUMMARY.md)** - Complete feature overview
+- **[Database Schema](src/db-schema.sql)** - SQL table definitions
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 19** - Latest React with modern features
+- **TanStack Start** - Full-stack React framework
+- **TanStack Router** - Type-safe routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Beautiful, accessible components
+
+### Backend
+- **Neon PostgreSQL** - Serverless Postgres database
+- **JWT (jose)** - Secure token-based authentication
+- **bcryptjs** - Password hashing
+- **Server Functions** - Type-safe RPC-style API
+
+### Developer Experience
+- **TypeScript** - Full type safety
+- **Vite** - Lightning-fast dev server
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── login-form.tsx          # Login with authentication
+│   ├── signup-form.tsx         # User registration
+│   ├── plate-editor.tsx        # Rich text editor
+│   └── ui/                     # shadcn/ui components
+├── lib/
+│   ├── auth.ts                 # JWT & bcrypt utilities
+│   ├── session.ts              # Auth server functions
+│   └── poets-api.ts            # Poets CRUD API
+├── hooks/
+│   └── useAuth.ts              # Authentication hook
+├── routes/
+│   ├── index.tsx               # Landing page
+│   ├── dashboard.tsx           # Main dashboard
+│   ├── captain/
+│   │   ├── login.tsx          # Login page
+│   │   └── signup.tsx         # Signup page
+│   └── poets/
+│       ├── new.tsx            # Create poem
+│       └── $poetId/
+│           └── edit.tsx       # Edit poem
+├── db.ts                       # Database client
+└── db-schema.sql              # Database schema
+```
+
+---
+
+## 🎯 User Flow
+
+1. **Home** (`/`) → Landing page with Login/Signup
+2. **Sign Up** (`/captain/signup`) → Create account
+3. **Login** (`/captain/login`) → Authenticate
+4. **Dashboard** (`/captain/dashboard`) → View all poems
+5. **Create** (`/poets/new`) → Write new poetry
+6. **Edit** (`/poets/:id/edit`) → Modify poems
+
+---
+
+## 🔒 Security Features
+
+- ✅ Passwords hashed with bcrypt (10 rounds)
+- ✅ JWT tokens with 7-day expiration
+- ✅ Server-side validation for all operations
+- ✅ Protected routes with authentication checks
+- ✅ User-specific data isolation
+- ✅ SQL injection prevention with parameterized queries
+
+---
+
+## 📦 Available Scripts
+
+```bash
+# Development
+pnpm dev              # Start dev server on port 3000
+pnpm build            # Build for production
+pnpm serve            # Preview production build
+
+# Code Quality
+pnpm lint             # Run ESLint
+pnpm format           # Run Prettier
+pnpm check            # Format and lint
+
+# Testing
+pnpm test             # Run Vitest tests
+```
+
+---
+
+## 🌍 Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# Neon Database Connection String
+VITE_DATABASE_URL=postgres://user:password@host/database
+
+# JWT Secret (generate with: node -e "console.log(require('crypto').randomBytes(64).toString('hex'))")
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+```
+
+---
+
+## 🗄️ Database Schema
+
+The application uses two main tables:
+
+### Users Table
+- `id` - Primary key
+- `email` - Unique email address
+- `password_hash` - Bcrypt hashed password
+- `full_name` - User's full name
+- `created_at`, `updated_at` - Timestamps
+
+### Poets Table
+- `id` - Primary key
+- `title` - Poem title
+- `content` - JSONB content from editor
+- `author_id` - Foreign key to users
+- `created_at`, `updated_at` - Timestamps
+
+See [src/db-schema.sql](src/db-schema.sql) for the complete schema.
+
+---
+
+## 🎨 Rich Text Editor Features
+
+The custom Markdown-style editor supports:
+- **Headings** (H1, H2)
+- **Bold**, *Italic*, __Underline__
+- `Inline code`
+- > Block quotes
+- Bulleted lists
+- Numbered lists
+
+---
+
+## 🚀 Deployment
+
+### Build for Production
+
+```bash
+pnpm build
+```
+
+Generates:
+- `/dist/client` - Client-side assets
+- `/dist/server` - Server-side code
+
+### Deploy To
+
+- **Vercel** - Deploy with `vercel` CLI
+- **Netlify** - Deploy with `netlify` CLI
+- **Railway** - Connect your repo
+- **Render** - Connect your repo
+- **Your own VPS** - Use PM2 or Docker
+
+Make sure to set environment variables in your deployment platform.
+
+---
+
+## 🤝 Contributing
+
+This is a starter template for poetry platforms. Feel free to:
+
+- Fork and customize for your needs
+- Add new features (comments, likes, sharing)
+- Improve the UI/UX
+- Add more editor features
+- Report issues or suggest improvements
+
+---
+
+## 📄 License
+
+MIT License - Feel free to use this project for personal or commercial purposes.
+
+---
+
+## 🙏 Acknowledgments
+
+- **TanStack** - For the amazing Start framework
+- **Neon** - For serverless Postgres
+- **shadcn** - For beautiful UI components
+- **Vercel** - For Next.js inspiration
+
+---
+
+## 📞 Support
+
+For issues or questions:
+- Check the [documentation](SETUP.md)
+- Review [implementation details](IMPLEMENTATION_SUMMARY.md)
+- Open an issue on GitHub
+
+---
+
+**Built with ❤️ and ☕**
+
+*Carpe Diem - Seize the Day through Poetry* 🖋️✨
